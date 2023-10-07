@@ -9,6 +9,7 @@ import { BlogPost } from '../../models/blog-post.model';
   styleUrls: ['./blog-post-detail.component.less'],
 })
 export class BlogPostDetailComponent implements OnInit {
+  categories: any[] = [];
   blogPost: BlogPost | undefined;
 
   constructor(
@@ -23,5 +24,10 @@ export class BlogPostDetailComponent implements OnInit {
         this.blogPost = post;
       });
     });
+  }
+
+  getCategoryName(categoryId: number): string {
+    const category = this.categories.find((cat) => cat.id === categoryId);
+    return category ? category.name : 'Unknown';
   }
 }
