@@ -4,11 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { BlogListComponent } from './blog-list/blog-list.component';
-import { NavComponent } from './nav/nav.component';
+import { BlogListComponent } from './components/blog-list/blog-list.component';
+import { NavComponent } from './components/nav/nav.component';
 import { StripHtmlPipe } from './strip-html.pipe';
-import { ContentfulService } from './services/contentful.service';
-import { BlogPostDetailComponent } from './blog-post-detail/blog-post-detail.component';
+import { BlogPostDetailComponent } from './components/blog-post-detail/blog-post-detail.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { BlogPostDetailComponent } from './blog-post-detail/blog-post-detail.com
     BlogListComponent,
     NavComponent,
     StripHtmlPipe,
-    BlogPostDetailComponent
+    BlogPostDetailComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,7 @@ import { BlogPostDetailComponent } from './blog-post-detail/blog-post-detail.com
     CommonModule,
     HttpClientModule
   ],
-  providers: [ContentfulService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

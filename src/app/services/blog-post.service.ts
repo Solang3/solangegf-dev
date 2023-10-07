@@ -8,7 +8,7 @@ import { BlogPost } from '../models/blog-post.model';
   providedIn: 'root'
 })
 export class BlogPostService {
-  private apiUrl = 'https://uat.mercadodesemillas.com/wp-json/wp/v2/posts';
+  private apiUrl = 'https://uat.mercadodesemillas.com/wp-json/wp/v2/posts/';
 
   constructor(private http: HttpClient) { }
 

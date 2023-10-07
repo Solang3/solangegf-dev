@@ -1,7 +1,7 @@
 // blog-list.component.ts
 import { Component, OnInit } from '@angular/core';
-import { BlogPost } from '../models/blog-post.model';
-import { BlogPostService } from '../services/blog-post.service';
+import { BlogPost } from '../../models/blog-post.model';
+import { BlogPostService } from '../../services/blog-post.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,14 +11,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[] = [];
-  categories: any[] = []; // Add this line to store categories
+  categories: any[] = [];
 
   constructor(private blogPostService: BlogPostService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.blogPostService.getBlogPosts().subscribe((posts) => {
       this.blogPosts = posts;
-      this.fetchCategories(); // Call the function to fetch categories
+      this.fetchCategories();
     });
   }
 
