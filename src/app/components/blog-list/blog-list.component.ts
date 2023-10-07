@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostService } from '../../services/blog-post.service';
 import { HttpClient } from '@angular/common/http';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-blog-list',
@@ -12,8 +13,20 @@ import { HttpClient } from '@angular/common/http';
 export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   categories: any[] = [];
+  isPageVisible = false;
 
-  constructor(private blogPostService: BlogPostService, private http: HttpClient) { }
+  constructor(private blogPostService: BlogPostService, private http: HttpClient, private router: Router) {
+    // Subscribe to router events to control the visibility
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        // Navigation has started, trigger fade-out animation
+        this.isPageVisible = false;
+      } else if (event instanceof NavigationEnd) {
+        // Navigation has ended, trigger fade-in animation
+        this.isPageVisible = true;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.blogPostService.getBlogPosts().subscribe((posts) => {
