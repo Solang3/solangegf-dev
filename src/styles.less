@@ -8,7 +8,7 @@
   .wp-block-heading {
     font-size: 1.5rem;
     line-height: 1.8rem;
-    margin: 40px 0 10px;
+    margin: 20px 0 10px;
     font-weight: 700;
   }
   .wp-block-code {
@@ -21,4 +21,34 @@
     padding: 24px 0 7px;
     display: block;
   }
+  ol, ul, menu {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  a {
+    --tw-text-opacity: 1;
+    color: rgb(63 131 248 / var(--tw-text-opacity));
+    &:hover {
+      text-decoration: wavy underline;
+    }
+  }
+}
+/* CSS for fade-in and fade-out transitions */
+.fade-in {
+  opacity: 1;
+  transition: opacity .1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity .1s ease-in-out;
 }

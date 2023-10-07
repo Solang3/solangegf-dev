@@ -9,6 +9,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { StripHtmlPipe } from './strip-html.pipe';
 import { BlogPostDetailComponent } from './components/blog-post-detail/blog-post-detail.component';
 import { ProductComponent } from './components/product/product.component';
+import { AboutComponent } from './pages/about/about.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ProductComponent } from './components/product/product.component';
     NavComponent,
     StripHtmlPipe,
     BlogPostDetailComponent,
-    ProductComponent
+    ProductComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
