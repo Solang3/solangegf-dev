@@ -1,16 +1,15 @@
-<div class="max-w-screen-xl mx-auto p-4">
-  <h1 class="text-3xl my-8 font-semibold text-gray-800" [innerHTML]="blogPost?.title?.rendered"></h1>
+<div class="post-detail max-w-screen-xl mx-auto p-4">
+  <h1 class="text-3xl my-5 font-semibold text-gray-800" [innerHTML]="blogPost?.title?.rendered"></h1>
   <div class="flex items-center mt-4 text-gray-600">
-    <span class="mr-2">
-      Posted on {{ blogPost?.date | date: 'medium' }} in
-    </span>
-    <div class="flex space-x-2">
-      <span *ngFor="let categoryId of blogPost?.categories">
-        {{ getCategoryName(categoryId) }}
-      </span>
-    </div>
+    <span class="mr-2" [innerHTML]="blogPost?.date | date: 'medium'"></span>
+    <!-- TODO: Bring the correct category
+      <div class="flex space-x-2">
+        <span *ngFor="let categoryId of blogPost?.categories">
+          {{ getCategoryName(categoryId) }}
+        </span>
+      </div>
+    -->
   </div>
 
   <!-- Post Content -->
   <div class="mt-8 text-gray-800" [innerHTML]="blogPost?.content?.rendered"></div>
-</div>
