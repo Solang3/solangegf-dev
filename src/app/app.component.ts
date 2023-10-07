@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-angular-tailwind-app';
+  author = 'Solange Gonzalez Ferrero';
 }
