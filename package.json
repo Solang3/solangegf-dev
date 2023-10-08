@@ -1,5 +1,5 @@
 {
-  "name": "my-angular-tailwind-app",
+  "name": "solangegf-dev",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,6 +20,8 @@
     "@angular/router": "^16.2.0",
     "@ng-icons/bootstrap-icons": "^25.3.1",
     "@ng-icons/core": "^25.3.1",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "autoprefixer": "^10.4.16",
     "contentful": "^10.6.1",
     "flowbite": "^1.8.1",
