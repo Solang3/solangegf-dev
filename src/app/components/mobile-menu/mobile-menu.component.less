@@ -1,0 +1,24 @@
+.menu-open {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  z-index: 1000;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  /* Inactive link styles */
+  .inactive-link {
+    color: #fff; /* Change to your desired inactive link color */
+  }
+
+  /* Active link styles */
+  .active-link {
+    color: #007bff; /* Change to your desired active link color */
+  }
+}
+
+.menu-closed {
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}

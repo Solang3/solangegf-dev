@@ -12,6 +12,7 @@ import { ProductComponent } from './components/product/product.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BlogPostDetailComponent,
     ProductComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    MobileMenuComponent
   ],
   imports: [
     BrowserModule,
