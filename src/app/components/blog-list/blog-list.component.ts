@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogPostService } from '../../services/blog-post.service';
 import { HttpClient } from '@angular/common/http';
-import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+
 
 @Component({
   selector: 'app-blog-list',
@@ -13,25 +13,15 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   categories: any[] = [];
-  isPageVisible = false;
+  arePostsLoaded = false; // Initialize as false
 
-  constructor(private blogPostService: BlogPostService, private http: HttpClient, private router: Router) {
-    // Subscribe to router events to control the visibility
-    router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        // Navigation has started, trigger fade-out animation
-        this.isPageVisible = false;
-      } else if (event instanceof NavigationEnd) {
-        // Navigation has ended, trigger fade-in animation
-        this.isPageVisible = true;
-      }
-    });
-  }
+  constructor(private blogPostService: BlogPostService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.blogPostService.getBlogPosts().subscribe((posts) => {
       this.blogPosts = posts;
       this.fetchCategories();
+      this.arePostsLoaded = true; // Set to true when posts are loaded
     });
   }
 
@@ -43,6 +33,6 @@ export class BlogListComponent implements OnInit {
 
   getCategoryName(categoryId: number): string {
     const category = this.categories.find((cat) => cat.id === categoryId);
-    return category ? category.name : 'Unknown';
+    return category ? category.name : 'Development';
   }
 }
