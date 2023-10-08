@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Router, NavigationEnd } from '@angular/router'; // Import Router and NavigationEnd
 
@@ -16,10 +16,17 @@ import { Router, NavigationEnd } from '@angular/router'; // Import Router and Na
   ]
 })
 
-export class AppComponent {
-  title = 'my-angular-tailwind-app';
-  author = 'Solange Gonzalez Ferrero';
-  routeData: any; // Define routeData at the class level
+export class AppComponent implements OnInit {
+  title = 'solangegf-dev';
+  author = 'Solang3';
+  routeData: any;
+  defaultLanguage!: string;
+
+  ngOnInit(): void {
+    // Detect user's preferred language
+    const userLanguages = navigator.languages || [navigator.language];
+    this.defaultLanguage = userLanguages[0];
+  }
 
   constructor(private router: Router) {
     // Subscribe to router events to control animations

@@ -13,6 +13,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
+import { TranslationModule } from './translation.module';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 
 @NgModule({
   declarations: [
@@ -24,18 +27,22 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
     ProductComponent,
     AboutComponent,
     HomeComponent,
-    MobileMenuComponent
+    MobileMenuComponent,
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('es'); // Set default language to English
+  }
 }
