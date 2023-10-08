@@ -1,15 +1,15 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+// language-switcher.component.ts
+import { Component } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-language-switcher',
   templateUrl: './language-switcher.component.html',
-  styleUrls: ['./language-switcher.component.less']
 })
 export class LanguageSwitcherComponent {
-  @Output() languageChanged = new EventEmitter<string>();
+  constructor(private translationService: TranslationService) {}
 
-  switchLanguage(event: Event): void {
-    const selectedValue = (event.target as HTMLSelectElement).value;
-    this.languageChanged.emit(selectedValue);
+  switchLanguage(language: string) {
+    this.translationService.setLanguage(language);
   }
 }
