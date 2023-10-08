@@ -1,0 +1,25 @@
+
+<div id="mobileMenu" class="py-4 px-6 bg-white rounded-lg border border-gray-200 shadow" [ngClass]="{ 'menu-open': isMenuOpen, 'menu-closed': !isMenuOpen }">
+  <ul>
+    <li class="py-2">
+      <a routerLink=""
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+        class=""
+        (click)="closeMenu()">Home</a>
+    </li>
+    <li class="py-2">
+      <a routerLink="/blog"
+        routerLinkActive="active-link"
+        class=""
+        (click)="closeMenu()">Blog</a>
+    </li>
+    <li class="py-2">
+      <a routerLink="/about"
+        routerLinkActive="active-link"
+        class=""
+        (click)="closeMenu()">About</a>
+    </li>
+</ul>
+</div>
+
