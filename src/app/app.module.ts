@@ -10,7 +10,8 @@ import { StripHtmlPipe } from './strip-html.pipe';
 import { BlogPostDetailComponent } from './components/blog-post-detail/blog-post-detail.component';
 import { ProductComponent } from './components/product/product.component';
 import { AboutComponent } from './pages/about/about.component';
-
+import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,15 +21,19 @@ import { AboutComponent } from './pages/about/about.component';
     StripHtmlPipe,
     BlogPostDetailComponent,
     ProductComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

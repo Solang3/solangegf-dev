@@ -9,8 +9,18 @@ import { BlogPost } from '../models/blog-post.model';
 })
 export class BlogPostService {
   private apiUrl = 'https://uat.mercadodesemillas.com/wp-json/wp/v2/posts/';
+  private cachedBlogPosts: BlogPost[] = [];
 
   constructor(private http: HttpClient) { }
+
+    // Define a method to set or get cached blog posts
+  cacheBlogPosts(posts: BlogPost[]): void {
+    this.cachedBlogPosts = posts;
+  }
+
+  getCachedBlogPosts(): BlogPost[] {
+    return this.cachedBlogPosts;
+  }
 
   getBlogPosts(): Observable<BlogPost[]> {
     return this.http.get<BlogPost[]>(this.apiUrl);
