@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Router, NavigationEnd } from '@angular/router'; // Import Router and NavigationEnd
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
