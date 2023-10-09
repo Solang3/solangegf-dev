@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'my-angular-tailwind-app'`, () => {
+  it(`should have as title 'solangegf-dev'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-angular-tailwind-app');
+    expect(app.title).toEqual('solangegf-dev');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('my-angular-tailwind-app app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('solangegf-dev app is running!');
   });
 });
