@@ -6,19 +6,19 @@
       routerLinkActive="active-link"
       [routerLinkActiveOptions]="{ exact: true }"
         class=""
-        (click)="closeMenu()">Home</a>
+        (click)="closeMenu()">{{'Home' | translate}}</a>
     </li>
     <li class="py-2">
       <a routerLink="/blog"
         routerLinkActive="active-link"
         class=""
-        (click)="closeMenu()">Blog</a>
+        (click)="closeMenu()">{{'Blog' | translate}}</a>
     </li>
     <li class="py-2">
       <a routerLink="/about"
         routerLinkActive="active-link"
         class=""
-        (click)="closeMenu()">About</a>
+        (click)="closeMenu()">{{'About' | translate}}</a>
     </li>
 </ul>
 </div>
