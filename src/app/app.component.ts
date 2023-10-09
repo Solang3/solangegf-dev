@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component  } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -16,17 +16,10 @@ import { Router, NavigationEnd } from '@angular/router';
   ]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'solangegf-dev';
   author = 'Solang3';
   routeData: any;
-  defaultLanguage!: string;
-
-  ngOnInit(): void {
-    // Detect user's preferred language
-    const userLanguages = navigator.languages || [navigator.language];
-    this.defaultLanguage = userLanguages[0];
-  }
 
   constructor(private router: Router) {
     // Subscribe to router events to control animations

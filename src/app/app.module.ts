@@ -16,6 +16,7 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
 import { TranslationModule } from './translation.module';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,18 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    TranslationModule
+    TranslationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('es'); // Set default language to English
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('es');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang?.match(/en|es/) ? browserLang : 'es');
   }
 }
