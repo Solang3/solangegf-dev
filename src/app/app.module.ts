@@ -17,6 +17,7 @@ import { TranslationModule } from './translation.module';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { FormsModule } from '@angular/forms';
+import { NameModalComponent } from './components/name-modal/name-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     HomeComponent,
     MobileMenuComponent,
-    LanguageSwitcherComponent
+    LanguageSwitcherComponent,
+    NameModalComponent
   ],
   imports: [
     BrowserModule,
