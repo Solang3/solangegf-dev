@@ -65,7 +65,7 @@ export default function BreakoutPage() {
           k.color(...WHITE),
           "ball",
           {
-            vel: k.vec2(k.rand() > 0.5 ? 220 : -220, -320),
+            vel: k.vec2(k.choose([220, -220]), -320),
           },
         ]);
 
