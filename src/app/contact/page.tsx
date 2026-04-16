@@ -8,7 +8,7 @@ const links = [
   { label: "github", value: "@solang3", href: "https://github.com/solang3" },
   { label: "linkedin", value: "solangegonzalez", href: "https://www.linkedin.com/in/solangegonzalez" },
   { label: "x", value: "@Solang3", href: "https://x.com/Solang3" },
-  { label: "instagram", value: "@respaldo.mds.arg", href: "https://www.instagram.com/respaldo.mds.arg" },
+  { label: "instagram", value: "@solang3.gf", href: "https://www.instagram.com/solang3.gf" },
 ];
 
 export default function ContactPage() {
