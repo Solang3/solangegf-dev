@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Press_Start_2P } from "next/font/google";
+import KonamiListener from "@/components/KonamiListener";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body className="min-h-full" suppressHydrationWarning>
         {children}
+        <KonamiListener />
       </body>
     </html>
   );

@@ -19,6 +19,22 @@ export const SECRETS: Secret[] = [
       "Soy el momento donde la noche deja de ser noche pero aún no amanece. Tu tía me habló a mí, y yo no dormía.",
     hint: "Tu tía no dormía. Buscá el nombre de esa hora en español.",
   },
+  {
+    id: "breakout",
+    path: "/breakout",
+    title: "Fichín — Breakout (1976)",
+    riddle:
+      "Meto una moneda, me enciendo. Si rompés todos mis bloques, gano yo. Fichín de 1976 — en inglés significo 'escape'. ¿Cómo me llamo?",
+    hint: "Atari. 1976. Lo diseñaron dos Steves — uno co-fundó Apple.",
+  },
+  {
+    id: "hotdog",
+    path: "/hotdog",
+    title: "HotDog Pro — 1994",
+    riddle:
+      "Soy un editor de 1994, australiano, con nombre de comida callejera y mascota perro. Tu tía escribía HTML conmigo a las 2am. ¿Cómo me llamo?",
+    hint: "Sausage Software. Rex the Dog — el Clippy del HTML. Comida callejera con apellido profesional.",
+  },
 ];
 
 const STORAGE_KEY = "solangegf-secrets";

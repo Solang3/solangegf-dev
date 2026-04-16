@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { SECRETS, useDiscovered } from "@/lib/secrets";
+import { useCheatsEnabled } from "@/lib/cheats";
+import RiddleInput from "@/components/RiddleInput";
 
 export default function AtlasPage() {
   const discovered = useDiscovered();
+  const cheatsEnabled = useCheatsEnabled();
   const total = SECRETS.length;
   const found = SECRETS.filter((s) => discovered.has(s.id)).length;
 
@@ -56,7 +59,7 @@ export default function AtlasPage() {
             Las que ya encontraste quedan guardadas acá.
           </p>
 
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <ProgressBar found={found} total={total} />
             <span
               className="text-[10px] tracking-[0.3em] text-[var(--color-text-muted)]"
@@ -64,6 +67,14 @@ export default function AtlasPage() {
             >
               {String(found).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </span>
+            {cheatsEnabled && (
+              <span
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-neon-yellow)] px-3 py-1 text-[9px] tracking-[0.3em] text-[var(--color-neon-yellow)]"
+                style={{ fontFamily: "var(--font-accent)" }}
+              >
+                ◆ CHEATS ENABLED
+              </span>
+            )}
           </div>
         </motion.header>
 
@@ -94,6 +105,7 @@ export default function AtlasPage() {
                   index={idx + 1}
                   secret={secret}
                   isUnlocked={isUnlocked}
+                  cheatsEnabled={cheatsEnabled}
                 />
               </motion.li>
             );
@@ -131,10 +143,12 @@ function SecretCard({
   index,
   secret,
   isUnlocked,
+  cheatsEnabled,
 }: {
   index: number;
   secret: (typeof SECRETS)[number];
   isUnlocked: boolean;
+  cheatsEnabled: boolean;
 }) {
   return (
     <article
@@ -177,7 +191,7 @@ function SecretCard({
         “{secret.riddle}”
       </p>
 
-      {isUnlocked && (
+      {isUnlocked ? (
         <p className="mt-5 text-xs text-[var(--color-text-muted)]">
           URL:{" "}
           <Link
@@ -187,18 +201,38 @@ function SecretCard({
             solangegf.dev{secret.path}
           </Link>
         </p>
-      )}
-
-      {!isUnlocked && secret.hint && (
-        <p className="mt-5 text-xs text-[var(--color-text-muted)]">
-          <span
-            className="mr-2 text-[9px] tracking-[0.3em] text-[var(--color-neon-yellow)]"
-            style={{ fontFamily: "var(--font-accent)" }}
-          >
-            PISTA
-          </span>
-          {secret.hint}
-        </p>
+      ) : (
+        <div className="mt-6">
+          <RiddleInput answer={secret.id} placeholder="tipeá la respuesta..." />
+          {cheatsEnabled && (
+            <p className="mt-4 flex items-center gap-2 text-xs">
+              <span
+                className="text-[9px] tracking-[0.3em] text-[var(--color-neon-yellow)]"
+                style={{ fontFamily: "var(--font-accent)" }}
+              >
+                ▸ CHEAT
+              </span>
+              <span className="text-[var(--color-text-muted)]">respuesta:</span>
+              <code
+                className="rounded bg-[var(--color-grid)] px-2 py-0.5 text-[var(--color-neon-yellow)]"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                {secret.id}
+              </code>
+            </p>
+          )}
+          {secret.hint && (
+            <p className="mt-4 text-xs text-[var(--color-text-muted)]">
+              <span
+                className="mr-2 text-[9px] tracking-[0.3em] text-[var(--color-neon-yellow)]"
+                style={{ fontFamily: "var(--font-accent)" }}
+              >
+                PISTA
+              </span>
+              {secret.hint}
+            </p>
+          )}
+        </div>
       )}
     </article>
   );
