@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-crt: #0B1020;
+  --color-grid: #1F2A44;
+  --color-neon-magenta: #F472B6;
+  --color-neon-cyan: #22D3EE;
+  --color-neon-yellow: #FACC15;
+  --color-text: #F5F5FA;
+  --color-text-muted: rgba(245, 245, 250, 0.7);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-jetbrains);
+  --font-accent: var(--font-press-start);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  background-color: var(--color-crt);
+  color: var(--color-text);
+  font-family: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::selection {
+  background-color: var(--color-neon-magenta);
+  color: var(--color-crt);
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0.7;
+  }
+  11% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  20% {
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.crt-flicker {
+  animation: crt-flicker 5s ease-in-out infinite;
 }
