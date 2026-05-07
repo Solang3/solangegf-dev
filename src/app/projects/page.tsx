@@ -1,5 +1,10 @@
 "use client";
 
+// NOTE: Some project descriptions and tags below are inferred from Solange's
+// CV and the original briefing. The ones marked with "// TODO: Solange" need
+// her to confirm or replace with the real stack/description. Inline edits
+// welcome — the data is just a typed array.
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -22,32 +27,117 @@ const projects: Project[] = [
   {
     id: "greenkedin",
     title: "GreenkedIn",
-    tagline: "Red profesional del sector cannábico en LATAM.",
+    tagline: "Red profesional para la industria cannábica en LATAM.",
     years: "2025 — now",
     status: "IN PROGRESS",
     level: "LV. 12",
     accent: "magenta",
     description: [
-      "La red social donde cultivadores, dispensarios, growshops y profesionales del cannabis se encuentran. Foco en LATAM, pensada desde la realidad del sector, no desde afuera.",
-      "Mi proyecto principal hoy. Frontend, UI/UX, producto. Cranee-ando desde 2025.",
+      "Pensada desde la realidad del sector cannabis en Latinoamérica: cultivadores, dispensarios, growshops, profesionales y empresas. Feed, perfiles, conexiones, empleos y recursos.",
+      "Built end-to-end con Claude Code — Next.js 15 (App Router con React Server Components + Server Actions), TypeScript, Prisma + Supabase (Postgres, Auth, Storage), Tailwind + shadcn/ui, deploy en Vercel.",
     ],
-    tags: ["cannabis", "LATAM", "producto", "comunidad"],
+    tags: [
+      "Next.js 15",
+      "TypeScript",
+      "Prisma",
+      "Supabase",
+      "shadcn/ui",
+      "cannabis",
+      "LATAM",
+    ],
     url: "https://greenkedin.lat",
+  },
+  {
+    id: "binawave",
+    title: "BinaWave",
+    tagline: "SaaS de terapia con sonido binaural — empezada para mi papá.",
+    years: "2025",
+    status: "SLEEPING",
+    level: "LV. 09",
+    accent: "cyan",
+    description: [
+      "Construida end-to-end con Claude Code: auth, streaming de audio, suscripciones (MercadoPago + PayPal) y foro comunitario, sobre Vercel + Supabase.",
+      "Los tracks binaurales los generé con Suno. La empecé para mi papá, que está interesado en la terapia con ondas binaurales.",
+      "Pausada — quiero retomarla. Repo (todavía bajo el nombre original Neurowave): github.com/Solang3/neurowave.",
+    ],
+    tags: [
+      "SaaS",
+      "Supabase",
+      "Vercel",
+      "Claude Code",
+      "Suno",
+      "audio streaming",
+      "MercadoPago",
+      "PayPal",
+    ],
+    url: "https://github.com/Solang3/neurowave",
   },
   {
     id: "mercadodesemillas",
     title: "Mercado de Semillas",
-    tagline: "E-commerce de semillas. De germinar a consumir.",
+    tagline: "E-commerce de semillas de cannabis, mío. De germinar a consumir.",
     years: "2020 — now",
     status: "ACTIVE",
     level: "LV. 42",
     accent: "yellow",
     description: [
-      "Marca propia, armada desde cero: branding, UX, catálogo, logística, comunidad. Construida con WooCommerce y mucho café.",
+      "Marca propia armada desde cero: branding, UX, catálogo, logística y comunidad. Frontend en Next.js 15 + React 19 + Tailwind + Zustand, backend WordPress headless con plugin custom (`wp-plugin`), pagos vía MercadoPago.",
+      "Vendedora con licencia INASE (Instituto Nacional de Semillas, AR). En trámite la licencia de cáñamo industrial en ARICCAME — pendiente de implementación del organismo.",
       "La prueba viva de que sé lo que cuesta lanzar, crecer y sostener un negocio — no solo escribir código.",
     ],
-    tags: ["e-commerce", "branding", "WooCommerce", "logística"],
+    tags: [
+      "Next.js 15",
+      "React 19",
+      "headless WP",
+      "wp-plugin custom",
+      "MercadoPago",
+      "Zustand",
+      "INASE",
+    ],
     url: "https://mercadodesemillas.com",
+  },
+  {
+    id: "mama-se-planta",
+    title: "Mama Se Planta",
+    tagline: "Web para una marca cannábica argentina, en una mañana.",
+    years: "2025",
+    status: "ACTIVE",
+    level: "LV. 06",
+    accent: "magenta",
+    description: [
+      "Diseño + contenido + dev end-to-end con Claude — design system completo y todo el copy generados en una sola mañana. Una prueba clara de cómo cambia el ciclo de producción cuando AI es parte del flujo.",
+    ],
+    tags: [
+      "Claude",
+      "design system",
+      "AI-assisted",
+      "Next.js",
+      "Vercel",
+      "cannabis",
+    ],
+    url: "https://mama-se-planta.vercel.app",
+  },
+  {
+    id: "cadizsrl",
+    title: "Cadiz Energías Renovables",
+    tagline: "Sitio mayorista para una empresa de energía solar familiar.",
+    years: "2025 — now",
+    status: "IN PROGRESS",
+    level: "LV. 04",
+    accent: "cyan",
+    description: [
+      "Frontend Next.js 16 + React 19 + Tailwind 4 que consume un WordPress headless vía WPGraphQL. El catálogo se muestra sin precios — cada producto deriva al CTA \"solicitar cotización\" en lugar de carrito.",
+      "El backend WP es la misma instancia que usa la tienda minorista de la misma empresa familiar. Tipos TypeScript autogenerados desde el schema GraphQL con graphql-codegen.",
+    ],
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "WPGraphQL",
+      "graphql-codegen",
+      "headless WP",
+      "energía solar",
+    ],
+    url: "https://cadizsrl-web.vercel.app",
   },
   {
     id: "solangegf-dev",
@@ -56,16 +146,18 @@ const projects: Project[] = [
     years: "2026",
     status: "META",
     level: "LV. 01",
-    accent: "cyan",
+    accent: "yellow",
     description: [
-      "Un sitio para romper cosas por gusto, esconder acertijos para mis sobrinos, y contar historias que no caben en un CV.",
-      "Next.js 16, Tailwind 4, framer-motion, kaplay, y un Konami code por si te aburrís.",
+      "Acertijos para mis sobrinos, un Breakout escondido y un Konami code, todo arriba de Next 16 + Tailwind 4 + framer-motion + kaplay.",
     ],
-    tags: ["Next.js 16", "Tailwind v4", "easter eggs", "gamer shit"],
+    tags: ["Next.js 16", "Tailwind v4", "kaplay", "easter eggs"],
   },
 ];
 
-const accentMap: Record<Accent, { border: string; text: string; glow: string }> = {
+const accentMap: Record<
+  Accent,
+  { border: string; text: string; glow: string }
+> = {
   magenta: {
     border: "border-[var(--color-neon-magenta)]",
     text: "text-[var(--color-neon-magenta)]",
@@ -83,6 +175,90 @@ const accentMap: Record<Accent, { border: string; text: string; glow: string }> 
   },
 };
 
+const notableClients = [
+  "Disney",
+  "Sony",
+  "Electronic Arts",
+  "Sabre Holdings",
+  "Deloitte",
+  "Yahoo",
+  "Movistar",
+  "Edesur",
+  "AMC Theatres",
+  "PowerToFly",
+];
+
+type StackGroup = {
+  label: string;
+  accent: Accent;
+  items: string[];
+};
+
+const stack: StackGroup[] = [
+  {
+    label: "FRONTEND",
+    accent: "magenta",
+    items: [
+      "TypeScript",
+      "JavaScript ES6+",
+      "React",
+      "Next.js",
+      "Angular",
+      "HTML",
+      "CSS / Sass",
+      "Tailwind",
+    ],
+  },
+  {
+    label: "BACKEND",
+    accent: "cyan",
+    items: [
+      "Supabase",
+      "Prisma",
+      "Postgres",
+      "REST APIs",
+      "Flask · Python",
+      "serverless",
+    ],
+  },
+  {
+    label: "E-COMMERCE & CMS",
+    accent: "yellow",
+    items: [
+      "Adobe Commerce / Magento",
+      "WooCommerce",
+      "WordPress",
+      "Typo3",
+      "headless CMS",
+    ],
+  },
+  {
+    label: "AI WORKFLOWS",
+    accent: "magenta",
+    items: [
+      "Claude Code",
+      "hooks · subagents · MCP servers · skills",
+      "Anthropic SDK",
+      "prompt caching · tool use",
+      "autonomous agents",
+      "v0.app",
+      "GitHub automation",
+    ],
+  },
+  {
+    label: "OPS",
+    accent: "cyan",
+    items: [
+      "Vercel",
+      "Cloudflare",
+      "Plesk",
+      "SEO",
+      "analytics",
+      "performance",
+    ],
+  },
+];
+
 export default function ProjectsPage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -94,9 +270,9 @@ export default function ProjectsPage() {
             "linear-gradient(var(--color-grid) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
           maskImage:
-            "radial-gradient(ellipse at 50% 15%, black 10%, transparent 75%)",
+            "radial-gradient(ellipse at 50% 12%, black 10%, transparent 75%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse at 50% 15%, black 10%, transparent 75%)",
+            "radial-gradient(ellipse at 50% 12%, black 10%, transparent 75%)",
         }}
       />
 
@@ -127,19 +303,27 @@ export default function ProjectsPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
-            Cosas que craneé hasta que salieron. Algunas siguen vivas, otras
-            duermen, y una que otra solo existe porque me la debía.
+            Cosas que craneé hasta que salieron. Algunas son mías, otras
+            las hice para clientes — todas las construí con el mismo
+            cuidado.
           </p>
         </motion.header>
+
+        <h2
+          className="mt-16 text-[10px] tracking-[0.35em] text-[var(--color-neon-cyan)]"
+          style={{ fontFamily: "var(--font-accent)" }}
+        >
+          ◆ FEATURED
+        </h2>
 
         <motion.ol
           initial="hidden"
           animate="visible"
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.12 } },
+            visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="mt-14 space-y-6"
+          className="mt-6 space-y-6"
         >
           {projects.map((p) => (
             <motion.li
@@ -162,10 +346,53 @@ export default function ProjectsPage() {
           ))}
         </motion.ol>
 
+        <section className="mt-20">
+          <h2
+            className="text-[10px] tracking-[0.35em] text-[var(--color-neon-yellow)]"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
+            ◆ NOTABLE CLIENTS
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--color-text-muted)]">
+            Clientes para los que trabajé a través de Globant, NTT DATA,
+            PowerToFly y otros. Code que no es público, pero impacto que sí.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {notableClients.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-[var(--color-grid)] px-4 py-1.5 text-sm text-[var(--color-text)] transition-colors hover:border-[var(--color-neon-yellow)] hover:text-[var(--color-neon-yellow)]"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-20">
+          <h2
+            className="text-[10px] tracking-[0.35em] text-[var(--color-neon-magenta)]"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
+            ◆ STACK
+          </h2>
+          <div className="mt-6 space-y-6">
+            {stack.map((group) => (
+              <StackRow key={group.label} group={group} />
+            ))}
+          </div>
+        </section>
+
         <p className="mt-16 text-sm italic text-[var(--color-text-muted)]">
-          (más proyectos viejos, incluyendo stints en NTT DATA y Angular
-          shops, vienen en una próxima iteración — o los revelan los
-          acertijos del /atlas.)
+          Para CV completo y trayectoria detallada (NTT DATA, Globant,
+          Youwe, Velocity Partners, GirlsAskGuys, etc.), andá a{" "}
+          <Link
+            href="/about"
+            className="text-[var(--color-neon-cyan)] hover:underline"
+          >
+            /about
+          </Link>
+          .
         </p>
 
         <div className="mt-12">
@@ -262,11 +489,35 @@ function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 text-sm transition-colors ${accent.text} hover:underline`}
             >
-              → ver en vivo
+              → {project.url.includes("github.com") ? "ver código" : "ver en vivo"}
             </a>
           </div>
         )}
       </div>
     </motion.article>
+  );
+}
+
+function StackRow({ group }: { group: StackGroup }) {
+  const accent = accentMap[group.accent];
+  return (
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-[160px_1fr] md:gap-6">
+      <p
+        className={`text-[10px] tracking-[0.35em] ${accent.text}`}
+        style={{ fontFamily: "var(--font-accent)" }}
+      >
+        {group.label}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {group.items.map((it) => (
+          <span
+            key={it}
+            className="rounded-full border border-[var(--color-grid)] px-3 py-1 text-xs text-[var(--color-text)]"
+          >
+            {it}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
