@@ -184,13 +184,13 @@ export default function HotdogPage() {
 
           <div className="mt-14 flex items-center gap-6 text-xs">
             <Link
-              href="/atlas"
+              href="/playwithme/atlas"
               className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
             >
               ← volver al atlas
             </Link>
             <Link
-              href="/"
+              href="/playwithme"
               className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
             >
               ← home

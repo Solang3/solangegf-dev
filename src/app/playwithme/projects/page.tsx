@@ -70,7 +70,6 @@ const projects: Project[] = [
       "MercadoPago",
       "PayPal",
     ],
-    url: "https://github.com/Solang3/neurowave",
   },
   {
     id: "mercadodesemillas",
@@ -387,7 +386,7 @@ export default function ProjectsPage() {
           Para CV completo y trayectoria detallada (NTT DATA, Globant,
           Youwe, Velocity Partners, GirlsAskGuys, etc.), andá a{" "}
           <Link
-            href="/about"
+            href="/playwithme/about"
             className="text-[var(--color-neon-cyan)] hover:underline"
           >
             /about
@@ -397,7 +396,7 @@ export default function ProjectsPage() {
 
         <div className="mt-12">
           <Link
-            href="/"
+            href="/playwithme"
             className="text-xs text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← volver al hogar

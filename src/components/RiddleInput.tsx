@@ -20,7 +20,7 @@ export default function RiddleInput({
     e.preventDefault();
     const cleaned = value.trim().toLowerCase().replace(/^\/+/, "");
     if (cleaned === answer) {
-      router.push("/" + answer);
+      router.push("/playwithme/" + answer);
     } else {
       setError(true);
       await controls.start({

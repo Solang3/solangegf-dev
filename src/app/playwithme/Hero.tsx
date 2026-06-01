@@ -4,10 +4,10 @@ import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/projects", label: "Proyectos" },
-  { href: "/stories", label: "Historias" },
-  { href: "/about", label: "Sobre mí" },
-  { href: "/contact", label: "Contacto" },
+  { href: "/playwithme/projects", label: "Proyectos" },
+  { href: "/playwithme/stories", label: "Historias" },
+  { href: "/playwithme/about", label: "Sobre mí" },
+  { href: "/playwithme/contact", label: "Contacto" },
 ];
 
 const container: Variants = {
@@ -67,7 +67,7 @@ export default function Hero() {
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
         <Link
-          href="/"
+          href="/playwithme"
           className="text-[10px] tracking-[0.3em] text-[var(--color-neon-cyan)]"
           style={{ fontFamily: "var(--font-accent)" }}
         >
@@ -102,7 +102,7 @@ export default function Hero() {
         >
           ◆ WELCOME · EST.{" "}
           <Link
-            href="/puerta-1"
+            href="/playwithme/puerta-1"
             aria-label="portal oculto"
             className="crt-flicker inline-block transition-all duration-200 hover:text-[var(--color-neon-cyan)] hover:[text-shadow:0_0_12px_rgba(34,211,238,0.9)]"
           >
@@ -138,12 +138,12 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="mt-14 flex flex-wrap gap-4">
-          <CTA href="/projects" variant="primary">
+          <CTA href="/playwithme/projects" variant="primary">
             proyectos
           </CTA>
-          <CTA href="/stories">historias</CTA>
-          <CTA href="/about">sobre mí</CTA>
-          <CTA href="/contact">decime hola</CTA>
+          <CTA href="/playwithme/stories">historias</CTA>
+          <CTA href="/playwithme/about">sobre mí</CTA>
+          <CTA href="/playwithme/contact">decime hola</CTA>
         </motion.div>
       </motion.main>
 

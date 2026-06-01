@@ -1,32 +1,196 @@
 @import "tailwindcss";
 
 @theme {
-  --color-crt: #0B1020;
-  --color-grid: #1F2A44;
-  --color-neon-magenta: #F472B6;
-  --color-neon-cyan: #22D3EE;
-  --color-neon-yellow: #FACC15;
-  --color-text: #F5F5FA;
-  --color-text-muted: rgba(245, 245, 250, 0.7);
+  /* ───────── PRO · blanco y negro, arquitectónico ───────── */
+  --color-paper: #f4f4f1;
+  --color-paper-2: #eceae4;
+  --color-ink: #101012;
+  --color-ink-soft: #76756f;
+  --color-line: #dbdad3;
+  --color-line-strong: #c4c2b9;
 
+  --font-display: var(--font-syne);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
-  --font-display: var(--font-jetbrains);
+
+  /* ───────── ARCADE · conservado para /playwithme ───────── */
+  --color-crt: #0b1020;
+  --color-grid: #1f2a44;
+  --color-neon-magenta: #f472b6;
+  --color-neon-cyan: #22d3ee;
+  --color-neon-yellow: #facc15;
+  --color-text: #f5f5fa;
+  --color-text-muted: rgba(245, 245, 250, 0.7);
   --font-accent: var(--font-press-start);
 }
 
-html,
-body {
-  background-color: var(--color-crt);
-  color: var(--color-text);
-  font-family: var(--font-sans);
+/* Tipos animables para morphing por CSS */
+@property --ang {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --morph {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 42%;
 }
 
+/* ───────── Base PRO ───────── */
+html {
+  scroll-behavior: smooth;
+}
+/* anchors (#servicios, #trabajo…) caen debajo del header fijo */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+html,
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 ::selection {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* ───────── Scope ARCADE: restaura el CRT en /playwithme ───────── */
+.arcade-scope {
+  background-color: var(--color-crt);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+.arcade-scope ::selection {
   background-color: var(--color-neon-magenta);
   color: var(--color-crt);
 }
 
+/* ───────── Grilla arquitectónica (hoja técnica) ───────── */
+.sheet-grid {
+  background-image: linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: var(--cell, 96px) var(--cell, 96px);
+}
+.sheet-grid-fine {
+  background-image: linear-gradient(
+      color-mix(in srgb, var(--color-line) 60%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-line) 60%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: var(--cell, 24px) var(--cell, 24px);
+}
+/* versión invertida (tinta) que asoma bajo la lente del cursor */
+.sheet-grid-invert {
+  background-color: var(--color-ink);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: var(--cell, 96px) var(--cell, 96px);
+}
+
+/* La lente: revela la capa invertida donde está el cursor */
+.cursor-lens {
+  --lens: 230px;
+  -webkit-mask-image: radial-gradient(
+    circle var(--lens) at var(--mx, 50%) var(--my, 42%),
+    #000 0%,
+    #000 42%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    circle var(--lens) at var(--mx, 50%) var(--my, 42%),
+    #000 0%,
+    #000 42%,
+    transparent 72%
+  );
+}
+
+/* Forma geométrica que muta (idle + influencia del puntero) */
+@keyframes drift-morph {
+  0% {
+    --morph: 38%;
+    --ang: 0deg;
+  }
+  50% {
+    --morph: 60%;
+    --ang: 180deg;
+  }
+  100% {
+    --morph: 38%;
+    --ang: 360deg;
+  }
+}
+.morph-form {
+  border-radius: var(--morph) calc(100% - var(--morph)) var(--morph)
+    calc(100% - var(--morph)) / calc(100% - var(--morph)) var(--morph)
+    calc(100% - var(--morph)) var(--morph);
+  transform: rotate(var(--ang))
+    rotate(calc((var(--px, 0.5) - 0.5) * 24deg))
+    scale(calc(1 + (var(--py, 0.5) - 0.5) * 0.12));
+  animation: drift-morph 16s ease-in-out infinite;
+}
+
+/* ───────── Reveal por scroll (scroll-driven, con fallback) ───────── */
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+    clip-path: inset(0 0 22% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 2% cover 32%;
+  }
+}
+
+/* Línea que se dibuja sola al entrar en viewport */
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@supports (animation-timeline: view()) {
+  .draw-line {
+    transform-origin: left;
+    animation: draw-x linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 24%;
+  }
+}
+
+/* Marquee de clientes */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* CRT flicker — conservado para el arcade */
 @keyframes crt-flicker {
   0%,
   100% {
@@ -45,7 +209,89 @@ body {
     opacity: 1;
   }
 }
-
 .crt-flicker {
   animation: crt-flicker 5s ease-in-out infinite;
+}
+
+/* ───────── Campo de globos: color que asoma bajo formas que flotan ───────── */
+.balloon-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -10;
+}
+.balloon {
+  position: absolute;
+  will-change: transform;
+  /* parallax suave hacia el puntero (--px/--py los escribe usePointerLens) */
+  transform: translate3d(
+    calc((var(--px, 0.5) - 0.5) * var(--depth, 30px) * 2),
+    calc((var(--py, 0.42) - 0.5) * var(--depth, 30px) * 2),
+    0
+  );
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.balloon-skin {
+  position: absolute;
+  inset: 0;
+  background-image: var(--g);
+  mix-blend-mode: multiply;
+  filter: blur(14px) saturate(1.25);
+  border-radius: 60% 40% 55% 45% / 55% 45% 55% 45%;
+  will-change: transform, border-radius;
+}
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 55% 45%;
+  }
+  50% {
+    border-radius: 42% 58% 38% 62% / 48% 52% 48% 52%;
+  }
+}
+@keyframes driftA {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(48px, -34px) scale(1.08);
+  }
+}
+@keyframes driftB {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-54px, 30px) scale(1.1);
+  }
+}
+@keyframes driftC {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, 44px) scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .morph-form,
+  .marquee-track,
+  .crt-flicker,
+  .balloon,
+  .balloon-skin {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal,
+  .draw-line {
+    animation: none !important;
+  }
 }

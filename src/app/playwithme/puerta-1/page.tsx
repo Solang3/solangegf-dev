@@ -64,7 +64,7 @@ export default function Puerta1() {
 
         <div className="mt-16 flex items-center gap-6 text-xs">
           <Link
-            href="/"
+            href="/playwithme"
             className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← volver al hogar

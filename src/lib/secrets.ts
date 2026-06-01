@@ -13,7 +13,7 @@ export type Secret = {
 export const SECRETS: Secret[] = [
   {
     id: "madrugada",
-    path: "/madrugada",
+    path: "/playwithme/madrugada",
     title: "La noche del ghosteo honesto",
     riddle:
       "Soy el momento donde la noche deja de ser noche pero aún no amanece. Tu tía me habló a mí, y yo no dormía.",
@@ -21,7 +21,7 @@ export const SECRETS: Secret[] = [
   },
   {
     id: "breakout",
-    path: "/breakout",
+    path: "/playwithme/breakout",
     title: "Fichín — Breakout (1976)",
     riddle:
       "Meto una moneda, me enciendo. Si rompés todos mis bloques, gano yo. Fichín de 1976 — en inglés significo 'escape'. ¿Cómo me llamo?",
@@ -29,7 +29,7 @@ export const SECRETS: Secret[] = [
   },
   {
     id: "hotdog",
-    path: "/hotdog",
+    path: "/playwithme/hotdog",
     title: "HotDog Pro — 1994",
     riddle:
       "Soy un editor de 1994, australiano, con nombre de comida callejera y mascota perro. Tu tía escribía HTML conmigo a las 2am. ¿Cómo me llamo?",

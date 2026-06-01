@@ -60,7 +60,7 @@ export default function StoriesPage() {
             </span>{" "}
             Si tenés ganas de buscar, empezá por el{" "}
             <Link
-              href="/puerta-1"
+              href="/playwithme/puerta-1"
               className="text-[var(--color-neon-cyan)] hover:underline"
             >
               año 1994
@@ -71,7 +71,7 @@ export default function StoriesPage() {
 
         <div className="mt-16">
           <Link
-            href="/"
+            href="/playwithme"
             className="text-xs text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← volver al hogar

@@ -424,7 +424,7 @@ export default function AboutPage() {
             Si llegaste hasta acá: gracias. Si querés laburar conmigo o
             charlar, estoy en{" "}
             <Link
-              href="/contact"
+              href="/playwithme/contact"
               className="text-[var(--color-neon-cyan)] hover:underline"
             >
               /contact
@@ -434,7 +434,7 @@ export default function AboutPage() {
 
           <div className="mt-8">
             <Link
-              href="/"
+              href="/playwithme"
               className="text-xs text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
             >
               ← volver al hogar

@@ -110,7 +110,7 @@ export default function MadrugadaPage() {
 
           <div className="mt-14">
             <Link
-              href="/"
+              href="/playwithme"
               className="text-xs text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
             >
               ← volver al hogar

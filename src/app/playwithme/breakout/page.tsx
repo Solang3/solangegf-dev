@@ -266,13 +266,13 @@ export default function BreakoutPage() {
 
         <div className="mt-10 flex items-center gap-6 text-xs">
           <Link
-            href="/atlas"
+            href="/playwithme/atlas"
             className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← volver al atlas
           </Link>
           <Link
-            href="/"
+            href="/playwithme"
             className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← home

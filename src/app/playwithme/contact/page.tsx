@@ -88,7 +88,7 @@ export default function ContactPage() {
 
         <div className="mt-16">
           <Link
-            href="/"
+            href="/playwithme"
             className="text-xs text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             ← volver al hogar
