@@ -7,8 +7,14 @@ export default function Services() {
   const t = useT();
 
   return (
-    <section id="servicios" className="relative px-6 py-28 md:px-10 md:py-40">
-      <div className="mx-auto max-w-6xl">
+    <section id="servicios" className="relative isolate overflow-hidden px-6 py-28 md:px-10 md:py-40">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="sheet-grid absolute inset-0 opacity-70" />
+        <div className="absolute -left-[6%] top-[12%] h-[55vh] w-[55vh] rounded-full opacity-35 blur-[90px]" style={{ background: "radial-gradient(circle, #6366f1, transparent 68%)" }} />
+        <div className="absolute right-0 top-[48%] h-[60vh] w-[60vh] rounded-full opacity-30 blur-[90px]" style={{ background: "radial-gradient(circle, #ec4899, transparent 68%)" }} />
+        <div className="absolute left-[28%] bottom-[2%] h-[52vh] w-[52vh] rounded-full opacity-30 blur-[90px]" style={{ background: "radial-gradient(circle, #06b6d4, transparent 68%)" }} />
+      </div>
+      <div className="relative mx-auto max-w-6xl">
         <div className="flex items-baseline justify-between">
           <h2
             className="text-[11px] tracking-[0.4em] text-ink-soft"
@@ -39,11 +45,11 @@ export default function Services() {
           </p>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-line-strong bg-line-strong shadow-[0_20px_60px_-28px_rgba(16,16,18,0.45)] sm:grid-cols-2">
+        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {t.services.items.map((item, i) => (
             <li
               key={item.title}
-              className="group relative bg-card transition-colors hover:bg-paper-2"
+              className="group relative h-full overflow-hidden rounded-2xl border border-line-strong bg-card/55 shadow-[0_20px_50px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl transition-colors hover:bg-card/70"
             >
               <Reveal delay={i * 0.07} className="h-full">
                 <div className="p-8 md:p-12">

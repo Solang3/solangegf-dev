@@ -42,7 +42,7 @@ export const VIBES: Vibe[] = [
   },
 ];
 
-export const DEFAULT_VIBE = "blueprint";
+export const DEFAULT_VIBE = "ink";
 
 export function getVibe(id: string | null): Vibe {
   return VIBES.find((v) => v.id === id) ?? VIBES[0];

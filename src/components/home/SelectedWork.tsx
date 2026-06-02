@@ -116,8 +116,14 @@ export default function SelectedWork() {
   const { locale } = useLocale();
 
   return (
-    <section id="trabajo" className="relative px-6 py-28 md:px-10 md:py-40">
-      <div className="mx-auto max-w-6xl">
+    <section id="trabajo" className="relative isolate px-6 py-28 md:px-10 md:py-40">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="sheet-grid absolute inset-0 opacity-70" />
+        <div className="absolute -left-[6%] top-[10%] h-[55vh] w-[55vh] rounded-full opacity-35 blur-[90px]" style={{ background: "radial-gradient(circle, #6366f1, transparent 68%)" }} />
+        <div className="absolute right-0 top-[40%] h-[60vh] w-[60vh] rounded-full opacity-30 blur-[90px]" style={{ background: "radial-gradient(circle, #ec4899, transparent 68%)" }} />
+        <div className="absolute left-[24%] bottom-[6%] h-[52vh] w-[52vh] rounded-full opacity-30 blur-[90px]" style={{ background: "radial-gradient(circle, #06b6d4, transparent 68%)" }} />
+      </div>
+      <div className="relative mx-auto max-w-6xl">
         <div className="flex items-baseline justify-between">
           <h2
             className="text-[11px] tracking-[0.4em] text-ink-soft"
@@ -141,8 +147,8 @@ export default function SelectedWork() {
               className="work-card sticky mb-6"
               style={{ top: `calc(11vh + ${i * 2.1}rem)` }}
             >
-              <Reveal y={40}>
-                <article className="overflow-hidden rounded-[28px] border border-line-strong bg-card p-8 shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)] md:p-14">
+              <article className="overflow-hidden rounded-[28px] border border-line-strong bg-card/65 p-8 shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl md:p-14">
+                <Reveal y={40}>
                   <div
                     className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] tracking-[0.3em] text-ink-soft"
                     style={{ fontFamily: "var(--font-mono)" }}
@@ -201,8 +207,8 @@ export default function SelectedWork() {
                       </a>
                     )}
                   </div>
-                </article>
-              </Reveal>
+                </Reveal>
+              </article>
             </li>
           ))}
         </ol>
