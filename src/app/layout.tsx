@@ -4,7 +4,11 @@ import {
   JetBrains_Mono,
   Press_Start_2P,
   Syne,
+  Fraunces,
+  Space_Grotesk,
+  Space_Mono,
 } from "next/font/google";
+import { VIBES, DEFAULT_VIBE } from "@/lib/vibes";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,6 +35,29 @@ const syne = Syne({
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-syne",
   display: "swap",
+});
+
+// Fuentes de las "vibes" extra — sin preload (se cargan al cambiar la onda).
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  preload: false,
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+  preload: false,
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -60,10 +87,17 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${inter.variable} ${jetbrains.variable} ${pressStart.variable} ${syne.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrains.variable} ${pressStart.variable} ${syne.variable} ${fraunces.variable} ${spaceGrotesk.variable} ${spaceMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full" suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var v=localStorage.getItem('solangegf-vibe');var ok=${JSON.stringify(
+              VIBES.map((x) => x.id),
+            )};if(ok.indexOf(v)<0){v='${DEFAULT_VIBE}';}document.documentElement.setAttribute('data-vibe',v);}catch(e){}})();`,
+          }}
+        />
         {children}
       </body>
     </html>

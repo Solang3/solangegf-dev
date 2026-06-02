@@ -24,7 +24,7 @@ export default function ContactFooter() {
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.5]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+            "linear-gradient(color-mix(in srgb, var(--color-paper) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--color-paper) 8%, transparent) 1px, transparent 1px)",
           backgroundSize: "96px 96px",
         }}
       />
@@ -54,14 +54,14 @@ export default function ContactFooter() {
           </p>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-paper/15 bg-paper/10 sm:grid-cols-2 lg:grid-cols-5">
           {channels.map((c) => (
             <li key={c.label} className="bg-ink">
               <a
                 href={c.href}
                 target={c.href.startsWith("http") || c.href.endsWith(".pdf") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col justify-between gap-6 p-6 transition-colors hover:bg-white/5"
+                className="group flex h-full flex-col justify-between gap-6 p-6 transition-colors hover:bg-paper/5"
               >
                 <span
                   className="text-[10px] tracking-[0.35em] text-paper/45"
@@ -79,7 +79,7 @@ export default function ContactFooter() {
         </ul>
 
         <div
-          className="mt-20 flex flex-col gap-6 border-t border-white/15 pt-8 text-[11px] tracking-[0.3em] text-paper/45 md:flex-row md:items-center md:justify-between"
+          className="mt-20 flex flex-col gap-6 border-t border-paper/15 pt-8 text-[11px] tracking-[0.3em] text-paper/45 md:flex-row md:items-center md:justify-between"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           <span>{t.contact.footerLeft}</span>

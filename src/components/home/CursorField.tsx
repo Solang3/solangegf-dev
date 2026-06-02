@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
-// Paleta de tintes claros: con `multiply` tiñen el papel sin oscurecerlo lo
-// suficiente como para tapar el texto negro → el color se ve y el texto sigue legible.
-const PALETTE = [
-  "#a5b4fc", "#67e8f9", "#f9a8d4", "#fcd34d", "#86efac", "#c4b5fd", "#93c5fd",
-];
+import { getVibe } from "@/lib/vibes";
 
 function rgba(hex: string, a: number) {
   const n = parseInt(hex.slice(1), 16);
@@ -33,6 +28,21 @@ export default function CursorField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // La vibe define paleta + blend: oscuras → `screen` (el color brilla),
+    // claras → `multiply` (tiñe el papel sin tapar el texto).
+    let palette = getVibe(document.documentElement.getAttribute("data-vibe")).palette;
+    const applyVibe = () => {
+      const vibe = getVibe(document.documentElement.getAttribute("data-vibe"));
+      palette = vibe.palette;
+      canvas.style.mixBlendMode = vibe.dark ? "screen" : "multiply";
+    };
+    applyVibe();
+    const vibeObserver = new MutationObserver(applyVibe);
+    vibeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-vibe"],
+    });
+
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let w = 0, h = 0;
@@ -53,7 +63,7 @@ export default function CursorField() {
     let ci = 0;
     const spawn = (x: number, y: number, big = false, seedAge = 0) => {
       if (blobs.length > 44) return;
-      const color = PALETTE[ci++ % PALETTE.length];
+      const color = palette[ci++ % palette.length];
       const maxR = (big ? 240 : 130) + Math.random() * 90;
       const life = (big ? 2600 : 1500) + Math.random() * 1200;
       blobs.push({
@@ -128,6 +138,7 @@ export default function CursorField() {
 
     return () => {
       cancelAnimationFrame(raf);
+      vibeObserver.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onMove);
     };

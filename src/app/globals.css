@@ -56,6 +56,68 @@ body {
   color: var(--color-paper);
 }
 
+/* ───────── Vibes: sets curados de color + tipografía (data-vibe) ─────────
+   En @layer base para ganarle a @layer theme (donde viven los tokens) y para
+   que el bundler no las elimine. blueprint = default (@theme); las demás
+   overridean color y/o fuentes. */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* ink — B&N oscuro */
+  html[data-vibe="ink"] {
+    color-scheme: dark;
+    --color-paper: #0c0c0e;
+    --color-paper-2: #16161a;
+    --color-ink: #f4f4f1;
+    --color-ink-soft: #9b9a94;
+    --color-line: #26262b;
+    --color-line-strong: #3a3a41;
+  }
+
+  /* cream — cálido, serif (Fraunces) */
+  html[data-vibe="cream"] {
+    color-scheme: light;
+    --color-paper: #f5efe2;
+    --color-paper-2: #ece2d0;
+    --color-ink: #2a2520;
+    --color-ink-soft: #6f6557;
+    --color-line: #e2d8c4;
+    --color-line-strong: #cdbfa3;
+    --font-display: var(--font-fraunces);
+    --font-mono: var(--font-space-mono);
+  }
+
+  /* editorial — blanco puro, grotesque (Space Grotesk) */
+  html[data-vibe="editorial"] {
+    color-scheme: light;
+    --color-paper: #ffffff;
+    --color-paper-2: #f1f1f0;
+    --color-ink: #0a0a0a;
+    --color-ink-soft: #6b6b6b;
+    --color-line: #e6e6e4;
+    --color-line-strong: #cfcfcc;
+    --font-display: var(--font-space-grotesk);
+  }
+
+  /* terminal — mono oscuro, verde (Space Mono) */
+  html[data-vibe="terminal"] {
+    color-scheme: dark;
+    --color-paper: #0a0f0c;
+    --color-paper-2: #111813;
+    --color-ink: #d7e6d0;
+    --color-ink-soft: #7f9178;
+    --color-line: #1b271f;
+    --color-line-strong: #2c3d31;
+    --font-display: var(--font-space-mono);
+    --font-mono: var(--font-space-mono);
+  }
+}
+
 /* ───────── Scope ARCADE: restaura el CRT en /playwithme ───────── */
 .arcade-scope {
   background-color: var(--color-crt);

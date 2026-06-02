@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useT } from "@/i18n/LocaleProvider";
 import LocaleToggle from "./LocaleToggle";
+import ThemeToggle from "./ThemeToggle";
+import VibeShuffle from "./VibeShuffle";
 
 export default function SiteHeader() {
   const t = useT();
@@ -61,6 +63,8 @@ export default function SiteHeader() {
             {t.nav.play} ↗
           </Link>
           <span className="hidden h-3 w-px bg-line-strong sm:inline-block" />
+          <ThemeToggle />
+          <VibeShuffle />
           <LocaleToggle />
         </nav>
       </div>
