@@ -27,7 +27,7 @@ export default function Services() {
 
         <Reveal>
           <h3
-            className="mt-10 max-w-3xl font-semibold leading-[1.02] tracking-[-0.02em] text-[clamp(2rem,5.5vw,3.8rem)]"
+            className="mt-10 max-w-4xl font-bold leading-[0.98] tracking-[-0.03em] text-[clamp(2.6rem,7vw,5rem)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {t.services.title}
@@ -39,11 +39,11 @@ export default function Services() {
           </p>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-line-strong bg-line-strong sm:grid-cols-2">
+        <ul className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-line-strong bg-line-strong shadow-[0_20px_60px_-28px_rgba(16,16,18,0.45)] sm:grid-cols-2">
           {t.services.items.map((item, i) => (
             <li
               key={item.title}
-              className="group relative bg-paper transition-colors hover:bg-paper-2"
+              className="group relative bg-card transition-colors hover:bg-paper-2"
             >
               <Reveal delay={i * 0.07} className="h-full">
                 <div className="p-8 md:p-12">

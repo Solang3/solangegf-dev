@@ -142,7 +142,7 @@ export default function SelectedWork() {
               style={{ top: `calc(11vh + ${i * 2.1}rem)` }}
             >
               <Reveal y={40}>
-                <article className="overflow-hidden rounded-[28px] border border-line-strong bg-paper p-8 shadow-[0_24px_60px_-30px_rgba(16,16,18,0.35)] md:p-14">
+                <article className="overflow-hidden rounded-[28px] border border-line-strong bg-card p-8 shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)] md:p-14">
                   <div
                     className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] tracking-[0.3em] text-ink-soft"
                     style={{ fontFamily: "var(--font-mono)" }}

@@ -4,6 +4,7 @@
   /* ───────── PRO · blanco y negro, arquitectónico ───────── */
   --color-paper: #f4f4f1;
   --color-paper-2: #eceae4;
+  --color-card: #ffffff;
   --color-ink: #101012;
   --color-ink-soft: #76756f;
   --color-line: #dbdad3;
@@ -76,7 +77,8 @@ body {
     --color-ink: #f4f4f1;
     --color-ink-soft: #9b9a94;
     --color-line: #26262b;
-    --color-line-strong: #3a3a41;
+    --color-line-strong: #42424b;
+    --color-card: #1f1f29;
   }
 
   /* cream — cálido, serif (Fraunces) */
@@ -88,6 +90,7 @@ body {
     --color-ink-soft: #6f6557;
     --color-line: #e2d8c4;
     --color-line-strong: #cdbfa3;
+    --color-card: #fdfaf2;
     --font-display: var(--font-fraunces);
     --font-mono: var(--font-space-mono);
   }
@@ -95,8 +98,9 @@ body {
   /* editorial — blanco puro, grotesque (Space Grotesk) */
   html[data-vibe="editorial"] {
     color-scheme: light;
-    --color-paper: #ffffff;
-    --color-paper-2: #f1f1f0;
+    --color-paper: #f6f6f5;
+    --color-paper-2: #efefee;
+    --color-card: #ffffff;
     --color-ink: #0a0a0a;
     --color-ink-soft: #6b6b6b;
     --color-line: #e6e6e4;
@@ -112,7 +116,8 @@ body {
     --color-ink: #d7e6d0;
     --color-ink-soft: #7f9178;
     --color-line: #1b271f;
-    --color-line-strong: #2c3d31;
+    --color-line-strong: #35493a;
+    --color-card: #1a251d;
     --font-display: var(--font-space-mono);
     --font-mono: var(--font-space-mono);
   }
