@@ -16,7 +16,9 @@ const stack: StackGroup[] = [
   { label: "BACKEND", items: ["Supabase", "Prisma", "Postgres", "REST APIs", "Flask · Python", "serverless"] },
   { label: "E-COMMERCE & CMS", items: ["Adobe Commerce / Magento", "WooCommerce", "WordPress", "headless CMS", "Typo3"] },
   { label: "AI WORKFLOWS", items: ["Claude Code", "hooks · subagents · MCP · skills", "Anthropic SDK", "autonomous agents", "GitHub automation"] },
-  { label: "OPS", items: ["Vercel", "Cloudflare", "Plesk", "SEO", "analytics", "performance"] },
+  { label: "CONTENT AUTOMATION", items: ["Instagram Graph API", "Remotion · programmatic video", "GitHub Actions schedules", "Google Drive / Sheets as CMS", "Brevo newsletters", "ISR"] },
+  { label: "ANALYTICS & GROWTH", items: ["GA4 · custom events", "Tag Manager · dataLayer", "Search Console", "technical SEO · JSON-LD", "UTM · Consent Mode", "funnels · conversion"] },
+  { label: "OPS", items: ["Vercel", "Cloudflare", "Plesk", "performance", "Edge Config · Blob", "Travelpayouts"] },
 ];
 
 export default function About() {

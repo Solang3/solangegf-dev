@@ -41,6 +41,42 @@ const projects: Project[] = [
   },
   {
     index: "02",
+    slug: "skala-ecommerce",
+    title: "Skala Ecommerce",
+    tagline: {
+      en: "My ecommerce growth agency — SEO, analytics and automatic content.",
+      es: "Mi agencia de ecommerce: SEO, analytics y contenido automático.",
+    },
+    description: {
+      en: "For stores that already sell and want to delegate growth. Seven services, led by Automatic Content: connect the catalog and posts, stories and reels publish themselves on triggers like new products, price drops and Hot Sale. Next.js 15 with GA4 lead tracking and SEO built in.",
+      es: "Para tiendas que ya venden y quieren delegar el crecimiento. Siete servicios, con Contenido Automático al frente: conectás el catálogo y los posts, historias y reels se publican solos con disparadores como producto nuevo, baja de precio y Hot Sale. Next.js 15 con tracking de leads en GA4 y SEO de base.",
+    },
+    years: "2026 — now",
+    status: "ACTIVE",
+    tags: ["agency", "SEO", "analytics", "content automation"],
+    href: "https://www.skalaecommerce.com",
+    hrefLabel: "skalaecommerce.com",
+  },
+  {
+    index: "03",
+    slug: "desde-eze",
+    title: "Desde EZE",
+    tagline: {
+      en: "Flight deals that find, write and publish themselves.",
+      es: "Ofertas de vuelos que se buscan, se escriben y se publican solas.",
+    },
+    description: {
+      en: "Scans 60+ destinations every day, saves each deal to Drive and the landing updates itself. From the same data, GitHub Actions publish posts, stories and Remotion-rendered reels to Instagram. GA4 events, Consent Mode and a double opt-in newsletter. Next.js 16.",
+      es: "Revisa más de 60 destinos por día, guarda cada oferta en Drive y la landing se actualiza sola. Con los mismos datos, GitHub Actions publica posts, historias y reels renderizados con Remotion en Instagram. Eventos GA4, Consent Mode y newsletter con doble opt-in. Next.js 16.",
+    },
+    years: "2026 — now",
+    status: "ACTIVE",
+    tags: ["Next.js 16", "automation", "Instagram API", "Remotion", "GA4"],
+    href: "https://www.desdeeze.com",
+    hrefLabel: "desdeeze.com",
+  },
+  {
+    index: "04",
     slug: "mercado-de-semillas",
     title: "Mercado de Semillas",
     tagline: {
@@ -48,17 +84,17 @@ const projects: Project[] = [
       es: "E-commerce propio de semillas de cannabis, de germinar a consumir.",
     },
     description: {
-      en: "A brand built from scratch — branding, UX, catalog, logistics and community. Next.js + React 19 + Tailwind over headless WordPress with a custom plugin. INASE-licensed seller: proof I can sustain a business, not just write code.",
-      es: "Marca armada desde cero: branding, UX, catálogo, logística y comunidad. Next.js + React 19 + Tailwind sobre WordPress headless con plugin propio. Vendedora con licencia INASE: la prueba de sostener un negocio, no solo escribir código.",
+      en: "A brand built from scratch — branding, UX, catalog, logistics and community. Next.js + React 19 + Tailwind over headless WordPress with a custom plugin. INASE-licensed seller. Today also my lab for GTM/GA4 ecommerce analytics, SEO fixes and scheduled promo engines.",
+      es: "Marca armada desde cero: branding, UX, catálogo, logística y comunidad. Next.js + React 19 + Tailwind sobre WordPress headless con plugin propio. Vendedora con licencia INASE. Hoy también es mi laboratorio de analytics ecommerce con GTM/GA4, SEO y motores de promos programadas.",
     },
     years: "2020 — now",
     status: "ACTIVE",
-    tags: ["Next.js", "headless WP", "MercadoPago", "e-commerce"],
+    tags: ["Next.js", "headless WP", "MercadoPago", "GTM · GA4"],
     href: "https://mercadodesemillas.com",
     hrefLabel: "mercadodesemillas.com",
   },
   {
-    index: "03",
+    index: "05",
     slug: "cadiz-energias",
     title: "Cadiz Energías Renovables",
     tagline: {
@@ -76,7 +112,7 @@ const projects: Project[] = [
     hrefLabel: "cadizsrl-web.vercel.app",
   },
   {
-    index: "04",
+    index: "06",
     slug: "mama-se-planta",
     title: "Mama Se Planta",
     tagline: {
@@ -94,7 +130,7 @@ const projects: Project[] = [
     hrefLabel: "mama-se-planta.vercel.app",
   },
   {
-    index: "05",
+    index: "07",
     slug: "binawave",
     title: "BinaWave",
     tagline: {
