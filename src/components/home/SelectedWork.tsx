@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useT } from "@/i18n/LocaleProvider";
 import type { Locale } from "@/i18n/dictionaries";
+import { getCaseStudy } from "@/content/work";
+import { getWorkDetail } from "@/content/work-details";
 import { Reveal, DrawLine } from "./Reveal";
 
 type Loc = Record<Locale, string>;
@@ -111,40 +114,6 @@ const projects: Project[] = [
     href: "https://cadizsrl-web.vercel.app",
     hrefLabel: "cadizsrl-web.vercel.app",
   },
-  {
-    index: "06",
-    slug: "mama-se-planta",
-    title: "Mama Se Planta",
-    tagline: {
-      en: "A cannabis brand site, built in one morning.",
-      es: "Web para una marca cannábica, en una mañana.",
-    },
-    description: {
-      en: "Design system, copy and dev end-to-end with Claude in a single morning — a clear proof of how the production cycle changes when AI is part of the flow.",
-      es: "Design system, contenido y dev end-to-end con Claude en una sola mañana — prueba clara de cómo cambia el ciclo de producción cuando la AI es parte del flujo.",
-    },
-    years: "2025",
-    status: "ACTIVE",
-    tags: ["Claude", "design system", "AI-assisted", "Vercel"],
-    href: "https://mama-se-planta.vercel.app",
-    hrefLabel: "mama-se-planta.vercel.app",
-  },
-  {
-    index: "07",
-    slug: "binawave",
-    title: "BinaWave",
-    tagline: {
-      en: "A binaural sound-therapy SaaS.",
-      es: "SaaS de terapia con sonido binaural.",
-    },
-    description: {
-      en: "Auth, audio streaming, subscriptions (MercadoPago + PayPal) and a community forum on Vercel + Supabase. Tracks generated with Suno. I started it for my dad — paused, eager to resume.",
-      es: "Auth, streaming de audio, suscripciones (MercadoPago + PayPal) y foro comunitario sobre Vercel + Supabase. Tracks generados con Suno. La empecé para mi viejo — pausada, con ganas de retomarla.",
-    },
-    years: "2025",
-    status: "SLEEPING",
-    tags: ["SaaS", "Supabase", "audio streaming", "Claude Code"],
-  },
 ];
 
 export default function SelectedWork() {
@@ -177,7 +146,10 @@ export default function SelectedWork() {
         <DrawLine className="mt-5" />
 
         <ol className="mt-10">
-          {projects.map((p, i) => (
+          {projects.map((p, i) => {
+            const image = getCaseStudy(p.slug)?.image;
+            const hasDetails = Boolean(getWorkDetail(p.slug));
+            return (
             <li
               key={p.index}
               className="work-card sticky mb-6"
@@ -185,6 +157,8 @@ export default function SelectedWork() {
             >
               <article className="overflow-hidden rounded-[28px] border border-line-strong bg-card/65 p-8 shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl md:p-14">
                 <Reveal y={40}>
+                  <div className={image ? "grid gap-10 lg:grid-cols-[1fr_minmax(0,0.9fr)] lg:items-center" : undefined}>
+                  <div>
                   <div
                     className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] tracking-[0.3em] text-ink-soft"
                     style={{ fontFamily: "var(--font-mono)" }}
@@ -231,6 +205,15 @@ export default function SelectedWork() {
                       {t.work.caseStudy}
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </Link>
+                    {hasDetails && (
+                      <Link
+                        href={`/work/${p.slug}/details`}
+                        className="group inline-flex items-center gap-2 text-sm text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+                      >
+                        {locale === "es" ? "cómo funciona" : "how it works"}
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </Link>
+                    )}
                     {p.href && (
                       <a
                         href={p.href}
@@ -243,10 +226,29 @@ export default function SelectedWork() {
                       </a>
                     )}
                   </div>
+                  </div>
+                  {image && (
+                    <Link
+                      href={`/work/${p.slug}`}
+                      aria-label={p.title}
+                      className="block overflow-hidden rounded-xl border border-line-strong shadow-[0_18px_40px_-24px_rgba(16,16,18,0.55)] transition-transform hover:-translate-y-1"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        sizes="(min-width: 1024px) 420px, 100vw"
+                        className="h-auto w-full"
+                      />
+                    </Link>
+                  )}
+                  </div>
                 </Reveal>
               </article>
             </li>
-          ))}
+            );
+          })}
         </ol>
 
         <p className="mt-10 text-sm text-ink-soft">

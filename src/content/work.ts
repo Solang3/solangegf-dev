@@ -8,6 +8,7 @@ export type CaseStudy = {
   role: string;
   liveUrl?: string;
   liveLabel?: string;
+  image?: { src: string; alt: string; width: number; height: number };
   overview: string[];
   highlights: string[];
   stack: string[];
@@ -46,6 +47,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Founder — strategy, product & build",
     liveUrl: "https://www.skalaecommerce.com",
     liveLabel: "skalaecommerce.com",
+    image: { src: "/work/skala-ecommerce.png", alt: "Skala Ecommerce home page: “Tu ecommerce ya vende. Ahora hagámoslo escalar.”", width: 1440, height: 900 },
     overview: [
       "Skala is the agency I started for online stores that already sell and want to delegate growth: SEO, analytics, content creation, automatic content, engagement and promotion tracking — done by us, not just advised.",
       "It packages what I learned running my own store and building Desde EZE into services other shops can hire. The flagship is Automatic Content: connect a catalog (Tiendanube, WooCommerce, Shopify, Mercado Libre or a spreadsheet) and posts, stories and reels get designed and published on their own, triggered by new products, price drops, low stock and key dates like Hot Sale and Black Friday.",
@@ -68,6 +70,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Solo — product, automation & build",
     liveUrl: "https://www.desdeeze.com",
     liveLabel: "desdeeze.com",
+    image: { src: "/work/desde-eze.png", alt: "Desde EZE landing with a full-screen featured flight deal", width: 1440, height: 900 },
     overview: [
       "A flight-deals site for Argentina. Every day, before sunrise, my own tools scan 60+ destinations from Buenos Aires, Córdoba, Mendoza, Rosario, Salta, Tucumán and Neuquén, filter by schedules, layovers, travel time and real price, and flag the ones worth publishing.",
       "Publishing is automated end to end. Saving a deal writes a Markdown file to Google Drive, and the Netflix-style landing (Next.js 16 + React 19) picks it up through ISR with no CMS and no database for the content. From the same source, scheduled GitHub Actions publish posts, stories and reels to Instagram through the official API, with the reels rendered by Remotion and the access token renewing itself weekly.",
@@ -127,47 +130,6 @@ export const caseStudies: CaseStudy[] = [
       "Shared headless backend across two storefronts.",
     ],
     stack: ["Next.js 16", "React 19", "Tailwind 4", "WPGraphQL", "graphql-codegen", "headless WP"],
-  },
-  {
-    slug: "mama-se-planta",
-    index: "06",
-    title: "Mama Se Planta",
-    tagline: "A cannabis brand site, built in one morning.",
-    status: "ACTIVE",
-    years: "2025",
-    role: "Design + content + dev, with AI",
-    liveUrl: "https://mama-se-planta.vercel.app",
-    liveLabel: "mama-se-planta.vercel.app",
-    overview: [
-      "A complete brand site — design system, copy and development — produced end-to-end with Claude in a single morning.",
-      "It's a clear, concrete example of how the production cycle changes when AI is a real part of the flow: what used to take a small team a week became one focused morning, without cutting quality.",
-    ],
-    highlights: [
-      "Full design system + copy + build in one morning.",
-      "A working demonstration of an AI-accelerated workflow.",
-    ],
-    stack: ["Claude", "design system", "AI-assisted", "Next.js", "Vercel"],
-  },
-  {
-    slug: "binawave",
-    index: "07",
-    title: "BinaWave",
-    tagline: "A binaural sound-therapy SaaS.",
-    status: "SLEEPING",
-    years: "2025",
-    role: "Solo — full build",
-    liveUrl: "https://github.com/Solang3/neurowave",
-    liveLabel: "github.com/Solang3 (repo)",
-    overview: [
-      "A subscription SaaS for binaural-wave therapy: auth, audio streaming, subscriptions (MercadoPago + PayPal) and a community forum, on Vercel + Supabase.",
-      "The binaural tracks were generated with Suno. I started it for my dad, who's interested in binaural-wave therapy. It's currently paused — and on my list to resume.",
-    ],
-    highlights: [
-      "Full SaaS: auth, streaming, subscriptions, community.",
-      "Dual payments — MercadoPago + PayPal.",
-      "AI-generated audio content (Suno).",
-    ],
-    stack: ["SaaS", "Supabase", "Vercel", "MercadoPago", "PayPal", "Suno"],
   },
 ];
 
