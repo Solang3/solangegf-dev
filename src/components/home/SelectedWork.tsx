@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useT } from "@/i18n/LocaleProvider";
 import type { Locale } from "@/i18n/dictionaries";
+import { getCaseStudy } from "@/content/work";
+import { getWorkDetail } from "@/content/work-details";
 import { Reveal, DrawLine } from "./Reveal";
 
 type Loc = Record<Locale, string>;
@@ -41,6 +44,42 @@ const projects: Project[] = [
   },
   {
     index: "02",
+    slug: "skala-ecommerce",
+    title: "Skala Ecommerce",
+    tagline: {
+      en: "My ecommerce growth agency — SEO, analytics and automatic content.",
+      es: "Mi agencia de ecommerce: SEO, analytics y contenido automático.",
+    },
+    description: {
+      en: "For stores that already sell and want to delegate growth. Seven services, led by Automatic Content: connect the catalog and posts, stories and reels publish themselves on triggers like new products, price drops and Hot Sale. Next.js 15 with GA4 lead tracking and SEO built in.",
+      es: "Para tiendas que ya venden y quieren delegar el crecimiento. Siete servicios, con Contenido Automático al frente: conectás el catálogo y los posts, historias y reels se publican solos con disparadores como producto nuevo, baja de precio y Hot Sale. Next.js 15 con tracking de leads en GA4 y SEO de base.",
+    },
+    years: "2026 — now",
+    status: "ACTIVE",
+    tags: ["agency", "SEO", "analytics", "content automation"],
+    href: "https://www.skalaecommerce.com",
+    hrefLabel: "skalaecommerce.com",
+  },
+  {
+    index: "03",
+    slug: "desde-eze",
+    title: "Desde EZE",
+    tagline: {
+      en: "Flight deals that find, write and publish themselves.",
+      es: "Ofertas de vuelos que se buscan, se escriben y se publican solas.",
+    },
+    description: {
+      en: "Scans 60+ destinations every day, saves each deal to Drive and the landing updates itself. From the same data, GitHub Actions publish posts, stories and Remotion-rendered reels to Instagram. GA4 events, Consent Mode and a double opt-in newsletter. Next.js 16.",
+      es: "Revisa más de 60 destinos por día, guarda cada oferta en Drive y la landing se actualiza sola. Con los mismos datos, GitHub Actions publica posts, historias y reels renderizados con Remotion en Instagram. Eventos GA4, Consent Mode y newsletter con doble opt-in. Next.js 16.",
+    },
+    years: "2026 — now",
+    status: "ACTIVE",
+    tags: ["Next.js 16", "automation", "Instagram API", "Remotion", "GA4"],
+    href: "https://www.desdeeze.com",
+    hrefLabel: "desdeeze.com",
+  },
+  {
+    index: "04",
     slug: "mercado-de-semillas",
     title: "Mercado de Semillas",
     tagline: {
@@ -48,17 +87,17 @@ const projects: Project[] = [
       es: "E-commerce propio de semillas de cannabis, de germinar a consumir.",
     },
     description: {
-      en: "A brand built from scratch — branding, UX, catalog, logistics and community. Next.js + React 19 + Tailwind over headless WordPress with a custom plugin. INASE-licensed seller: proof I can sustain a business, not just write code.",
-      es: "Marca armada desde cero: branding, UX, catálogo, logística y comunidad. Next.js + React 19 + Tailwind sobre WordPress headless con plugin propio. Vendedora con licencia INASE: la prueba de sostener un negocio, no solo escribir código.",
+      en: "A brand built from scratch — branding, UX, catalog, logistics and community. Next.js + React 19 + Tailwind over headless WordPress with a custom plugin. INASE-licensed seller. Today also my lab for GTM/GA4 ecommerce analytics, SEO fixes and scheduled promo engines.",
+      es: "Marca armada desde cero: branding, UX, catálogo, logística y comunidad. Next.js + React 19 + Tailwind sobre WordPress headless con plugin propio. Vendedora con licencia INASE. Hoy también es mi laboratorio de analytics ecommerce con GTM/GA4, SEO y motores de promos programadas.",
     },
     years: "2020 — now",
     status: "ACTIVE",
-    tags: ["Next.js", "headless WP", "MercadoPago", "e-commerce"],
+    tags: ["Next.js", "headless WP", "MercadoPago", "GTM · GA4"],
     href: "https://mercadodesemillas.com",
     hrefLabel: "mercadodesemillas.com",
   },
   {
-    index: "03",
+    index: "05",
     slug: "cadiz-energias",
     title: "Cadiz Energías Renovables",
     tagline: {
@@ -72,42 +111,8 @@ const projects: Project[] = [
     years: "2025 — now",
     status: "IN PROGRESS",
     tags: ["Next.js 16", "WPGraphQL", "graphql-codegen", "B2B"],
-    href: "https://cadizsrl-web.vercel.app",
-    hrefLabel: "cadizsrl-web.vercel.app",
-  },
-  {
-    index: "04",
-    slug: "mama-se-planta",
-    title: "Mama Se Planta",
-    tagline: {
-      en: "A cannabis brand site, built in one morning.",
-      es: "Web para una marca cannábica, en una mañana.",
-    },
-    description: {
-      en: "Design system, copy and dev end-to-end with Claude in a single morning — a clear proof of how the production cycle changes when AI is part of the flow.",
-      es: "Design system, contenido y dev end-to-end con Claude en una sola mañana — prueba clara de cómo cambia el ciclo de producción cuando la AI es parte del flujo.",
-    },
-    years: "2025",
-    status: "ACTIVE",
-    tags: ["Claude", "design system", "AI-assisted", "Vercel"],
-    href: "https://mama-se-planta.vercel.app",
-    hrefLabel: "mama-se-planta.vercel.app",
-  },
-  {
-    index: "05",
-    slug: "binawave",
-    title: "BinaWave",
-    tagline: {
-      en: "A binaural sound-therapy SaaS.",
-      es: "SaaS de terapia con sonido binaural.",
-    },
-    description: {
-      en: "Auth, audio streaming, subscriptions (MercadoPago + PayPal) and a community forum on Vercel + Supabase. Tracks generated with Suno. I started it for my dad — paused, eager to resume.",
-      es: "Auth, streaming de audio, suscripciones (MercadoPago + PayPal) y foro comunitario sobre Vercel + Supabase. Tracks generados con Suno. La empecé para mi viejo — pausada, con ganas de retomarla.",
-    },
-    years: "2025",
-    status: "SLEEPING",
-    tags: ["SaaS", "Supabase", "audio streaming", "Claude Code"],
+    href: "https://cadizsrl.com.ar",
+    hrefLabel: "cadizsrl.com.ar",
   },
 ];
 
@@ -141,7 +146,10 @@ export default function SelectedWork() {
         <DrawLine className="mt-5" />
 
         <ol className="mt-10">
-          {projects.map((p, i) => (
+          {projects.map((p, i) => {
+            const image = getCaseStudy(p.slug)?.image;
+            const hasDetails = Boolean(getWorkDetail(p.slug));
+            return (
             <li
               key={p.index}
               className="work-card sticky mb-6"
@@ -149,6 +157,8 @@ export default function SelectedWork() {
             >
               <article className="overflow-hidden rounded-[28px] border border-line-strong bg-card/65 p-8 shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl md:p-14">
                 <Reveal y={40}>
+                  <div className={image ? "grid gap-10 lg:grid-cols-[1fr_minmax(0,0.9fr)] lg:items-center" : undefined}>
+                  <div>
                   <div
                     className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] tracking-[0.3em] text-ink-soft"
                     style={{ fontFamily: "var(--font-mono)" }}
@@ -195,6 +205,15 @@ export default function SelectedWork() {
                       {t.work.caseStudy}
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </Link>
+                    {hasDetails && (
+                      <Link
+                        href={`/work/${p.slug}/details`}
+                        className="group inline-flex items-center gap-2 text-sm text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+                      >
+                        {locale === "es" ? "cómo funciona" : "how it works"}
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </Link>
+                    )}
                     {p.href && (
                       <a
                         href={p.href}
@@ -207,10 +226,29 @@ export default function SelectedWork() {
                       </a>
                     )}
                   </div>
+                  </div>
+                  {image && (
+                    <Link
+                      href={`/work/${p.slug}`}
+                      aria-label={p.title}
+                      className="block overflow-hidden rounded-xl border border-line-strong shadow-[0_18px_40px_-24px_rgba(16,16,18,0.55)] transition-transform hover:-translate-y-1"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        sizes="(min-width: 1024px) 420px, 100vw"
+                        className="h-auto w-full"
+                      />
+                    </Link>
+                  )}
+                  </div>
                 </Reveal>
               </article>
             </li>
-          ))}
+            );
+          })}
         </ol>
 
         <p className="mt-10 text-sm text-ink-soft">

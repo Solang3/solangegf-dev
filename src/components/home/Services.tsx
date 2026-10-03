@@ -49,7 +49,7 @@ export default function Services() {
           {t.services.items.map((item, i) => (
             <li
               key={item.title}
-              className="group relative h-full overflow-hidden rounded-2xl border border-line-strong bg-card/55 shadow-[0_20px_50px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl transition-colors hover:bg-card/70"
+              className="group relative h-full overflow-hidden rounded-2xl sm:[&:last-child:nth-child(odd)]:col-span-2 border border-line-strong bg-card/55 shadow-[0_20px_50px_-26px_rgba(16,16,18,0.5)] backdrop-blur-2xl transition-colors hover:bg-card/70"
             >
               <Reveal delay={i * 0.07} className="h-full">
                 <div className="p-8 md:p-12">

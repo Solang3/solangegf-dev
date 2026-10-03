@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy, workSlugs } from "@/content/work";
+import { getWorkDetail } from "@/content/work-details";
 
 export function generateStaticParams() {
   return workSlugs.map((slug) => ({ slug }));
@@ -33,6 +35,7 @@ export default async function CaseStudyPage({
 
   const idx = caseStudies.findIndex((c) => c.slug === cs.slug);
   const next = caseStudies[(idx + 1) % caseStudies.length];
+  const hasDetails = Boolean(getWorkDetail(cs.slug));
 
   return (
     <div className="relative min-h-screen">
@@ -89,6 +92,20 @@ export default async function CaseStudyPage({
           </a>
         )}
 
+        {cs.image && (
+          <figure className="mt-12 overflow-hidden rounded-2xl border border-line-strong shadow-[0_22px_55px_-26px_rgba(16,16,18,0.5)]">
+            <Image
+              src={cs.image.src}
+              alt={cs.image.alt}
+              width={cs.image.width}
+              height={cs.image.height}
+              priority
+              sizes="(min-width: 896px) 832px, 100vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        )}
+
         <div className="my-14 h-px w-full bg-line-strong" />
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_220px]">
@@ -98,6 +115,16 @@ export default async function CaseStudyPage({
                 {p}
               </p>
             ))}
+
+            {hasDetails && (
+              <Link
+                href={`/work/${cs.slug}/details`}
+                className="group inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+              >
+                How it works, in detail
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            )}
 
             <div className="pt-4">
               <h2

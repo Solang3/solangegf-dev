@@ -36,7 +36,7 @@ const trajectory: Role[] = [
     company: "self-employed",
     location: "Buenos Aires, AR",
     notes:
-      "GreenkedIn, Mercado de Semillas, BinaWave, Cadiz Energías Renovables.",
+      "GreenkedIn, Skala Ecommerce, Desde EZE, Mercado de Semillas, Cadiz Energías Renovables.",
   },
   {
     years: "Apr 2021 — Feb 2025",
