@@ -117,8 +117,8 @@ export const caseStudies: CaseStudy[] = [
     status: "IN PROGRESS",
     years: "2025 — now",
     role: "Frontend — architecture & build",
-    liveUrl: "https://cadizsrl-web.vercel.app",
-    liveLabel: "cadizsrl-web.vercel.app",
+    liveUrl: "https://cadizsrl.com.ar",
+    liveLabel: "cadizsrl.com.ar",
     overview: [
       "A wholesale storefront for a family-run solar-energy company. The catalog is shown without prices — every product routes to a “request a quote” CTA instead of a cart, matching how B2B solar actually sells.",
       "The frontend is Next.js 16 + React 19 + Tailwind 4, consuming a headless WordPress backend via WPGraphQL. TypeScript types are auto-generated from the GraphQL schema with graphql-codegen, so the data layer stays type-safe.",

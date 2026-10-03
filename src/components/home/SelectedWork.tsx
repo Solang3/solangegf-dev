@@ -111,8 +111,8 @@ const projects: Project[] = [
     years: "2025 — now",
     status: "IN PROGRESS",
     tags: ["Next.js 16", "WPGraphQL", "graphql-codegen", "B2B"],
-    href: "https://cadizsrl-web.vercel.app",
-    hrefLabel: "cadizsrl-web.vercel.app",
+    href: "https://cadizsrl.com.ar",
+    hrefLabel: "cadizsrl.com.ar",
   },
 ];
 

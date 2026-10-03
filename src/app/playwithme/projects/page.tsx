@@ -143,7 +143,7 @@ const projects: Project[] = [
       "headless WP",
       "energía solar",
     ],
-    url: "https://cadizsrl-web.vercel.app",
+    url: "https://cadizsrl.com.ar",
   },
   {
     id: "solangegf-dev",
